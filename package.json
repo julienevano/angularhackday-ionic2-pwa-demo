@@ -36,6 +36,9 @@
   },
   "devDependencies": {
     "@ionic/app-scripts": "0.0.37-5",
+    "favicons-webpack-plugin": "0.0.7",
+    "html-webpack-plugin": "^2.24.1",
+    "offline-plugin": "^3.4.2",
     "typescript": "2.0.6",
     "webpack-merge": "^0.15.0"
   },
