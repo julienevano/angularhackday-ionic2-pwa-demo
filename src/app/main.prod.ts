@@ -5,3 +5,5 @@ import { AppModuleNgFactory } from './app.module.ngfactory';
 
 enableProdMode();
 platformBrowser().bootstrapModuleFactory(AppModuleNgFactory);
+
+require('../service-worker-install');

@@ -12,10 +12,6 @@ module.exports = {
       dest: '{{WWW}}/manifest.json'
     },
     {
-      src: '{{SRC}}/service-worker.js',
-      dest: '{{WWW}}/service-worker.js'
-    },
-    {
       src: 'node_modules/ionic-angular/polyfills/polyfills.js',
       dest: '{{BUILD}}/polyfills.js'
     },
