@@ -12,6 +12,11 @@
     "build:before": "build",
     "run:before": "build"
   },
+  "config": {
+    "ionic_copy": "./config/copy.config.js",
+    "ionic_webpack": "./config/webpack.config.js",
+    "ionic_build_dir": "www"
+  },
   "dependencies": {
     "@angular/common": "2.1.1",
     "@angular/compiler": "2.1.1",
@@ -31,7 +36,8 @@
   },
   "devDependencies": {
     "@ionic/app-scripts": "0.0.37-5",
-    "typescript": "2.0.6"
+    "typescript": "2.0.6",
+    "webpack-merge": "^0.15.0"
   },
   "cordovaPlugins": [
     "cordova-plugin-device",
