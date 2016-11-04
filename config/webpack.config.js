@@ -1,10 +1,13 @@
 var ionicWebpackConfig = require('@ionic/app-scripts/config/webpack.config');
 var manifest = require('../src/manifest.json');
+var package = require('../package.json');
+var path = require('path');
 var webpackMerge = require('webpack-merge');
 
 //  Webpack plugins
 var FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var OfflinePlugin = require('offline-plugin');
 
 // Webpack config
 module.exports = webpackMerge(ionicWebpackConfig, {
@@ -48,6 +51,55 @@ module.exports = webpackMerge(ionicWebpackConfig, {
         twitter: true,
         yandex: false,
         windows: false
+      }
+    }),
+
+    /**
+     * Plugin: OfflinePlugin
+     * Description: This plugin is intended to provide offline
+     * experience for webpack projects. It uses ServiceWorker
+     * and AppCache as a fallback under the hood.
+     *
+     * See: https://github.com/NekR/offline-plugin
+     */
+    new OfflinePlugin({
+      caches: {
+        main: [
+          'index.html',
+          'main.css',
+          'polyfills.js',
+          'main.js',
+          'assets/icon/favicon.ico',
+          'assets/icon/favicons-*/favicon.ico',
+          'assets/fonts/ionicons.woff2',
+          'assets/fonts/ionicons.woff',
+          'assets/fonts/ionicons.ttf',
+          'assets/imgs/logo.png'
+        ],
+        additional: [
+          'manifest.json',
+          'assets/icons/favicons-*/*.png'
+        ],
+        optional: [
+        ]
+      },
+      externals: [
+        'polyfills.js',
+        'assets/fonts/*.*',
+        'assets/imgs/logo.png'
+      ],
+      excludes: ['**/*.gz', '**/.cache'],
+      updateStrategy: 'all',
+      version: package.version + '.[hash]',
+
+      relativePaths: true,
+
+      ServiceWorker: {
+        output: 'sw.js'
+      },
+
+      AppCache: {
+        directory: 'appcache/'
       }
     })
   ]
