@@ -8,10 +8,6 @@ module.exports = {
       dest: '{{WWW}}/assets/'
     },
     {
-      src: '{{SRC}}/index.html',
-      dest: '{{WWW}}/index.html'
-    },
-    {
       src: '{{SRC}}/manifest.json',
       dest: '{{WWW}}/manifest.json'
     },
