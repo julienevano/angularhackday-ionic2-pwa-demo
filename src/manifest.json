@@ -1,8 +1,10 @@
 {
-  "name": "Ionic",
-  "short_name": "Ionic",
+  "name": "Angular Hack Day Ionic 2 PWA",
+  "short_name": "AngularHackDay",
+  "description": "Ionic 2 PWA demo for Angular Hack Day - Sydney",
   "start_url": "index.html",
   "display": "standalone",
+  "orientation": "portrait",
   "icons": [{
     "src": "assets/imgs/logo.png",
     "sizes": "512x512",
